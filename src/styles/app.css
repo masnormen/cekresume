@@ -1,17 +1,24 @@
-@import '@fontsource/fira-mono';
+/* @font-face {
+	font-family: 'Cal Sans';
+	src: url('https://raw.githubusercontent.com/calendso/font/main/fonts/otf/CalSans-SemiBold.otf');
+	src: url('https://raw.githubusercontent.com/calendso/font/main/fonts/webfonts/CalSans-SemiBold.woff2')
+			format('woff2'),
+		url('https://raw.githubusercontent.com/calendso/font/main/fonts/webfonts/CalSans-SemiBold.woff')
+			format('woff'),
+		url('https://raw.githubusercontent.com/calendso/font/main/fonts/webfonts/CalSans-SemiBold.ttf')
+			format('truetype');
+	font-weight: 600;
+	font-style: normal;
+} */
 
-:root {
-	font-family: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-	--font-mono: 'Fira Mono', monospace;
-	--pure-white: #ffffff;
-	--primary-color: #b9c6d2;
-	--secondary-color: #d0dde9;
-	--tertiary-color: #edf0f8;
-	--accent-color: #ff3e00;
-	--heading-color: rgba(0, 0, 0, 0.7);
-	--text-color: #444444;
-	--background-without-opacity: rgba(255, 255, 255, 0.7);
-	--column-width: 42rem;
-	--column-margin-top: 4rem;
+html,
+body {
+	position: relative;
+	height: 100%;
+	margin: 0;
+	scroll-behavior: smooth;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-family: 'ui-sans-serif', '-apple-system', 'Helvetica Neue', 'Segoe UI', 'Roboto', Arial, 'Noto Sans', sans-serif,
+		'Apple Color Emoji', 'Noto Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
