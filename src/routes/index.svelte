@@ -10,6 +10,8 @@
 	import ResumeItem from '$lib/ResumeItem.svelte';
 	import ResumeHeader from '$lib/ResumeHeader.svelte';
 
+	import { SEO_CONST } from '$lib/constants';
+
 	enum AppState {
 		Initial,
 		FileChosen,
@@ -56,32 +58,27 @@
 	};
 </script>
 
-<svelte:head>
-	<title>Cek Resume · Resume kamu sudah ATS-friendly?</title>
-</svelte:head>
-
 <SvelteSeo
+	{...SEO_CONST}
 	openGraph={{
-		title: 'Cek Resume · Resume kamu sudah ATS-friendly?',
-		description:
-			'Cek Resume dapat membantu mengecek apakah resume kamu dapat terbaca dengan baik oleh Application Tracking Systems (ATS). ATS sering digunakan oleh perusahaan dalam menyeleksi CV kandidat karyawan secara otomatis. Dengan website ini,kamu bisa terbantu untuk menulis resume yang ATS-friendly.',
-		url: 'https://cekresume.vercel.app/',
+		title: SEO_CONST.title,
+		description: SEO_CONST.description,
+		url: SEO_CONST.canonical,
 		type: 'website',
 		images: [
 			{
-				url: 'https://cekresume.vercel.app/thumbnail.png',
+				url: `${SEO_CONST.canonical}/thumbnail.png`,
 				width: 1266,
 				height: 703,
-				alt: 'Cek Resume · Resume kamu sudah ATS-friendly?',
+				alt: SEO_CONST.title,
 			},
 		],
 	}}
 	twitter={{
-		title: 'Cek Resume · Resume kamu sudah ATS-friendly?',
-		description:
-			'Cek Resume dapat membantu mengecek apakah resume kamu dapat terbaca dengan baik oleh Application Tracking Systems (ATS). ATS sering digunakan oleh perusahaan dalam menyeleksi CV kandidat karyawan secara otomatis. Dengan website ini,kamu bisa terbantu untuk menulis resume yang ATS-friendly.',
-		image: 'https://cekresume.vercel.app/thumbnail.png',
-		imageAlt: 'Cek Resume · Resume kamu sudah ATS-friendly?',
+		title: SEO_CONST.title,
+		description: SEO_CONST.description,
+		image: `${SEO_CONST.canonical}/thumbnail.png`,
+		imageAlt: SEO_CONST.title,
 	}}
 />
 
