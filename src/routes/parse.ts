@@ -1,6 +1,5 @@
 import type { RequestHandler } from '@sveltejs/kit';
 import { parse } from 'node-html-parser';
-import type { ParsedResume } from 'src/types/resume';
 
 export const post: RequestHandler = async ({ request }) => {
 	const randomNum = ((Math.random() * 6) | 0) + 1;
@@ -12,9 +11,9 @@ export const post: RequestHandler = async ({ request }) => {
 	const csrfToken = postingDom.getElementById('csrf-token').getAttribute('value');
 	const postingId = postingDom.getElementById('posting-id').getAttribute('value');
 
-	const formData = await request.formData();
-	formData.append('postingId', postingId);
-	formData.append('csrf', csrfToken);
+	const data = await request.formData();
+	data.append('postingId', postingId);
+	data.append('csrf', csrfToken);
 
 	const response = await fetch('https://jobs.lever.co/parseResume', {
 		method: 'POST',
@@ -22,7 +21,7 @@ export const post: RequestHandler = async ({ request }) => {
 			Referer: 'https://jobs.lever.co/',
 			Origin: 'https://jobs.lever.co/',
 		},
-		body: formData,
+		body: data,
 	});
 
 	if (!response.ok) {
@@ -31,9 +30,9 @@ export const post: RequestHandler = async ({ request }) => {
 			headers: {
 				contentType: 'application/json',
 			},
-			body: {
-				error: response.text(),
-			},
+			body: JSON.stringify({
+				error: await response.text(),
+			}),
 		};
 	}
 
