@@ -130,6 +130,9 @@
 			(ATS). ATS sering digunakan oleh perusahaan dalam menyeleksi CV kandidat karyawan secara otomatis. Dengan website ini,
 			kamu bisa terbantu untuk menulis resume yang ATS-friendly.
 		</p>
+		<p class="text-sm leading-relaxed text-red-600">
+			<b>Update: Sejak Mei 2022, API Lever hanya menampilkan informasi dasar saja.</b>
+		</p>
 		<p class="text-xs leading-relaxed text-gray-400">
 			<b>Tidak ada data yang disimpan oleh website ini.</b> Website ini menggunakan API dari
 			<a class="font-semibold text-blue-600" href="https://www.lever.co/" target="_blank">Lever.co</a>. Beberapa
@@ -146,12 +149,11 @@
 	</section>
 
 	<article
-		class="flex w-full max-w-[1024px] grow flex-col space-y-14 break-words rounded-2xl border border-gray-50 text-xs shadow-lg shadow-gray-200"
+		class="flex w-full max-w-[1024px] grow flex-col space-y-14 break-words rounded-2xl border border-gray-50 p-8 text-xs shadow-lg shadow-gray-200"
 	>
-		<!-- Summary -->
-		<ResumeHeader names={resume.names} summary={resume.summary.executiveSummary} />
+		<pre>{JSON.stringify(resume, null, 2)}</pre>
+		<!-- ResumeHeader names={resume.names} summary={resume.summary.executiveSummary} />
 
-		<!-- Biodata -->
 		<section class="flex flex-col gap-6 px-14 md:grid md:grid-cols-3">
 			<ResumeItem title="Contact Info">
 				{#each resume.emails as { value }}
@@ -224,7 +226,6 @@
 			</ResumeItem>
 		</section>
 
-		<!-- Experience -->
 		<section class="col-span-3 flex flex-col space-y-4 px-14 pb-16">
 			<span class="text-base font-medium text-gray-900">
 				Experience (YoE: {resume.summary.workTime.months / 12} years)
@@ -258,7 +259,7 @@
 					❓
 				{/each}
 			</div>
-		</section>
+		</section> -->
 	</article>
 {/if}
 
